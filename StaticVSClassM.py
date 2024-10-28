@@ -1,19 +1,24 @@
 
+
 class MyClass:
     class_variable = 10
 
     @staticmethod
-    def static_method(x, y):
-        return x + y
+    def static_method():
+        return MyClass.class_variable
 
     @classmethod
-    def class_method(cls, x):
-        return cls.class_variable * x
+    def class_method(cls):
+        cls.class_variable = 100
+        return cls.class_variable
 
-result1 = MyClass.static_method(2, 3)
 
-result2 = MyClass.class_method(2)
+class_result = MyClass.class_method()
 
-print(result1, result2)
+static_result = MyClass.static_method()
+
+
+print("class_result  = ", class_result)
+print("static_result = ", static_result)
 
 
